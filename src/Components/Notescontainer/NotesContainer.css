@@ -1,0 +1,21 @@
+.notesContainer {
+    font-family: 'Noto Sans', sans-serif;
+
+}
+
+.active_bar {
+    background-color: #5158BB;
+    padding: 8px 100px 8px 10px;
+    border-radius: 20px;
+}
+
+
+.color {
+    border-bottom: 2px solid rgb(6, 6, 19);
+}
+
+.notesContainer_sidebar {
+    background-color: #ededf7;
+    padding: 20px;
+
+}

@@ -1,0 +1,30 @@
+.notes {
+    width: 400px;
+}
+
+#note_add_btn {
+    background-color: #5158BB;
+    color: white;
+}
+
+
+.notes form textarea {
+    width: 100%;
+    border: none;
+    background-color: unset;
+}
+
+.notes form textarea:focus,
+.notes form input:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: unset;
+}
+
+.notes form input {
+    outline: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: unset;
+}

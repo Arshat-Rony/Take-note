@@ -1,0 +1,8 @@
+.side_bar li {
+    padding: 13px;
+}
+
+.side_bar {
+    background-color: #ededf7;
+    height: 100vh;
+}
