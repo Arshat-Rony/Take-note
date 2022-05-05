@@ -21,7 +21,7 @@ They can delte their note and update their note.
 
 
 ## Author
-_Arshat ROny_
+__Arshat Rony__
 
 
 
