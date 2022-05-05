@@ -1,0 +1,17 @@
+.allnotes_container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+}
+
+@media (min-width:768px) {
+    .allnotes_container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width:992px) {
+    .allnotes_container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

@@ -19,7 +19,7 @@ const Notes = ({ color }) => {
             color: color,
             email: email,
         }
-        const url = `http://localhost:5000/notes`
+        const url = `https://notes-app-server-side.herokuapp.com/notes`
         fetch(url, {
             method: "POST",
             headers: {

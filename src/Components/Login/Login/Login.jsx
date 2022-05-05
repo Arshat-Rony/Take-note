@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FaUserLock } from "react-icons/fa"
 import { MdAlternateEmail } from 'react-icons/md'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -19,16 +19,16 @@ const Login = () => {
     const [sendPasswordResetEmail] = useSendPasswordResetEmail(
         auth
     );
-    const [signInWithGoogle] = useSignInWithGoogle(auth);
+    const [signInWithGoogle, googleUser] = useSignInWithGoogle(auth);
     const [email, setEmail] = useState('')
     // useEffect(() => {
     //     if (token) {
     //        
     //     }
     // }, [user])
-    if (signuser) {
+    if (signuser || googleUser) {
         console.log(signuser)
-        navigate('/notescontainer')
+        navigate(from, { replace: true })
     }
     const handleSubmit = async (e) => {
         e.preventDefault()

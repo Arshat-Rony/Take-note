@@ -1,0 +1,12 @@
+.update_container form input,
+textarea {
+    background-color: unset;
+    border: none;
+}
+
+.update_container form input:focus,
+textarea:focus {
+    box-shadow: none;
+    outline: none;
+    background-color: unset;
+}

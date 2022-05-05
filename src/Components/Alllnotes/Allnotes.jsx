@@ -3,12 +3,12 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebaseinit';
 import useNotes from '../../hooks/useNotes';
 import Note from '../Note/Note';
-
-const Allnotes = () => {
+import "./Allnotes.css"
+const Allnotes = ({ searchText }) => {
     const [user] = useAuthState(auth)
-    const [notes, setNotes] = useNotes(user, "")
+    const [notes, setNotes] = useNotes(user, searchText || '')
     return (
-        <div className='d-flex gap-4 flex-wrap'>
+        <div className='allnotes_container p-5 pt-2'>
             {
                 notes.map(note =>
                     <Note

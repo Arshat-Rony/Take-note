@@ -2,15 +2,11 @@ import { signOut } from 'firebase/auth';
 import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebaseinit';
+import { GoSearch } from 'react-icons/go'
 import useNotes from '../../../hooks/useNotes';
 import './Header.css'
-const Header = () => {
+const Header = ({ searchText, setSearchText }) => {
     const [user] = useAuthState(auth)
-
-    const [searchText, setSearchText] = useState('')
-    const [notes, setNotes] = useNotes(user, searchText)
-
-
     const handleSubmit = e => {
         e.preventDefault()
         const inputValue = e.target.name.value;
@@ -23,7 +19,7 @@ const Header = () => {
                 <h3 className='fw-bold'>My Notes</h3>
                 <form onSubmit={handleSubmit} className='d-flex my-4'>
                     <input className='ps-4' type="text" name="name" id="name" placeholder='Search your notes' />
-                    <input type="submit" value="Search" />
+                    <span className='search'><GoSearch /></span>
                 </form>
                 {
                     user &&

@@ -12,41 +12,49 @@ import Recent from './Recent/Recent';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from './firebaseinit';
 import RequireAuth from './Components/RequireAuth/RequireAuth';
+import Update from './Components/Update/Update';
 export const ColorContext = React.createContext([])
 function App() {
   const [user] = useAuthState(auth)
   const colors = ["#02394A", "#043565", "#5158BB", "#F26DF9", "#EB4B98", '#207398']
   const [color, setColor] = useState('')
+  const [searchText, setSearchText] = useState('')
   return (
     <ColorContext.Provider value={color}>
       <div className="App row">
         {
-          user && <div className='col-12 col-md-3'>
+          user && <div className='col-md-3 col-12'>
             <SIdebar colors={colors}
               color={color}
               setColor={setColor}></SIdebar>
 
           </div>
         }
-        <div className="allcontainer col-12 col-md-9">
+        <div className="allcontainer col-md-9 col-12">
           {
-            user && <Header></Header>
+            user && <Header
+              searchText={searchText}
+              setSearchText={setSearchText}
+            ></Header>
           }
           <Routes>
 
 
             {/* <Route path='/' element={<NotesContainer></NotesContainer>} /> */}
-            <Route path='/login' element={<Login></Login>}></Route>
-            <Route path='/' element={<Login></Login>}></Route>
 
-            <Route path='/login' element={<Login></Login>}></Route>
-            <Route path='/signup' element={<Signup></Signup>}></Route>
+            <Route path='/' element={<RequireAuth>
+              <NotesContainer>
+              </NotesContainer>
+            </RequireAuth>}></Route>
             <Route path='/notescontainer' element={<RequireAuth>
               <NotesContainer>
               </NotesContainer>
             </RequireAuth>} />
-            <Route path='/allnotes' element={<Allnotes></Allnotes>} />
+            <Route path='/login' element={<Login></Login>}></Route>
+            <Route path='/signup' element={<Signup></Signup>}></Route>
+            <Route path='/allnotes' element={<Allnotes searchText={searchText}></Allnotes>} />
             <Route path='/recent' element={<Recent></Recent>} />
+            <Route path='/update/:id' element={<Update color={color}></Update>} />
           </Routes>
         </div>
         <ToastContainer />

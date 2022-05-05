@@ -7,4 +7,17 @@
     background: var(--color-gray-2);
     outline: none;
     font-family: 'Noto Sans', sans-serif;
+    position: relative;
+}
+
+.card:hover .note_btn {
+    opacity: 0.8;
+}
+
+.note_btn {
+    position: absolute;
+    bottom: 15px;
+    right: 20px;
+    opacity: 0;
+    transition: all 300ms;
 }

@@ -9,6 +9,14 @@
     box-shadow: 0 2px 5px 1px rgba(51, 47, 53, 0.247);
     border-radius: 24px;
     margin: 0 auto;
+    z-index: 0;
+}
+
+.search {
+    position: relative;
+    top: 10px;
+    right: 35px;
+    z-index: 1;
 }
 
 @media (min-width:768px) {

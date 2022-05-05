@@ -2,7 +2,11 @@
     padding: 13px;
 }
 
-.side_bar {
-    background-color: #ededf7;
-    height: 100vh;
+
+@media (min-width:768px) {
+
+    .side_bar {
+        min-height: 100vh;
+        background-color: rgb(237, 237, 237);
+    }
 }
