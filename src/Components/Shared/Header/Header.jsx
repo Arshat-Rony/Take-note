@@ -16,7 +16,10 @@ const Header = ({ searchText, setSearchText }) => {
     return (
         <div >
             <div className='header d-flex justify-content-between align-items-center flex-column flex-md-row pt-5 pe-5'>
-                <h3 className='fw-bold'>My Notes</h3>
+                <div className='d-flex flex-column align-items-center'>
+                    <img width="50px" src="image-removebg-preview (13).png" alt="" />
+                    <h3 className='fw-bold'>My Notes</h3>
+                </div>
                 <form onSubmit={handleSubmit} className='d-flex my-4'>
                     <input className='ps-4' type="text" name="name" id="name" placeholder='Search your notes' />
                     <span className='search'><GoSearch /></span>
