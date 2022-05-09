@@ -14,7 +14,12 @@ const useNotes = (user, searchText) => {
         if (user) {
             const url = `https://notes-app-server-side.herokuapp.com/notes?email=${email}`
             console.log("i am fired once")
-            fetch(url)
+            fetch(url, {
+                method: "GET",
+                headers: {
+                    authHeader: `Bearer ${localStorage.getItem('accesstoken')}`
+                },
+            })
                 .then(res => res.json())
                 .then(data => {
                     const remaining = data.filter(note => note.title.toLowerCase().includes(searchText) || note.message.toLowerCase().includes(searchText))

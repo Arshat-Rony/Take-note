@@ -32,10 +32,27 @@ const Signup = () => {
         const email = e.target.email.value;
         const name = e.target.name.value;
         const password = e.target.password.value;
+        const data = {
+            email,
+            password
+        }
         await createUserWithEmailAndPassword(email, password)
         await updateProfile({ displayName: name })
             .then(res => {
                 navigate(from, { replace: true });
+            })
+
+        fetch('https://notes-app-server-side.herokuapp.com/login', {
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.acccesstoken)
+                localStorage.setItem('accesstoken', data.acccesstoken)
             })
         e.target.reset()
 
